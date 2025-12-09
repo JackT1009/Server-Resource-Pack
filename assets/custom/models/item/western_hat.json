@@ -2,8 +2,8 @@
 	"format_version": "1.21.6",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "custom:item/western_hat1.png",
-		"1": "custom:item/western_hat2.png",
+		"0": "custom:item/western_hat1",
+		"1": "custom:item/western_hat2",
 		"particle": "custom:item/western_hat1"
 	},
 	"elements": [
