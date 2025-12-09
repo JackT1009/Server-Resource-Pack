@@ -1,0 +1,52 @@
+name: Deploy Resource Pack
+
+on:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Clean Workspace
+        run: rm -rf *
+
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install Zip
+        run: sudo apt-get install zip -y || echo "Zip likely already installed"
+
+      - name: Zip Resource Pack
+        run: zip -r resourcepack.zip . -x "*.git*" ".github*"
+
+      - name: Upload to GitHub Releases
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ github.run_number }}
+          name: Pack Update v${{ github.run_number }}
+          files: resourcepack.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Notify Minecraft Server
+        env:
+          PANEL_URL: ${{ secrets.PTERODACTYL_URL }}
+          API_KEY: ${{ secrets.PTERODACTYL_KEY }}
+          SERVER_ID: ${{ secrets.SERVER_ID }}
+          PACK_URL: https://github.com/${{ github.repository }}/releases/download/v${{ github.run_number }}/resourcepack.zip
+        run: |
+          # Command for 'Better Server Packs' (Fabric)
+          MC_COMMAND="pack set \"$PACK_URL\" push"
+
+          echo "Sending command to server..."
+
+          curl -X POST "$PANEL_URL/api/client/servers/$SERVER_ID/command" \
+            -H "Authorization: Bearer $API_KEY" \
+            -H "Content-Type: application/json" \
+            -H "Accept: Application/vnd.pterodactyl.v1+json" \
+            -d "{\"command\": \"$MC_COMMAND\"}"
