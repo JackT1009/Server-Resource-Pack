@@ -1,10 +1,10 @@
 {
 	"format_version": "1.21.6",
-	"credit": "Made with Blockbench",
+	"credit": "Jack",
 	"textures": {
-		"0": "minecraft:block/cobblestone",
-		"1": "minecraft:block/cobblestone"
-		"particle": "minecraft:block/cobblestone"
+		"0": "item/western_hat1",
+		"1": "item/western_hat2",
+		"particle": "item/western_hat1"
 	},
 	"elements": [
 		{
@@ -425,12 +425,30 @@
 	],
 	"display": {
 		"thirdperson_righthand": {
-			"translation": [0, 8.25, 0]
+			"translation": [0, 8, 0]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, 8, 0]
+		},
+		"ground": {
+			"translation": [0, 4.75, 0]
+		},
+		"gui": {
+			"rotation": [31, 161, 0],
+			"translation": [0, 5.5, -0.25]
 		},
 		"head": {
 			"rotation": [1, 0, -1],
 			"translation": [0.25, 20.75, 0],
 			"scale": [2.2, 2, 2]
+		},
+		"fixed": {
+			"rotation": [-90, 6, 0],
+			"translation": [0, 0, -16],
+			"scale": [2, 2, 2]
+		},
+		"on_shelf": {
+			"translation": [0, 0, -2.25]
 		}
 	},
 	"groups": [
