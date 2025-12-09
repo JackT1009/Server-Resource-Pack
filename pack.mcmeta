@@ -1,7 +1,10 @@
 {
   "pack": {
-    "description": "Visit §2Texture-Packs.com §rfor the best packs & shaders!",
-    "min_format": [69, 0],
-    "max_format": [2147483647, 0]
+    "pack_format": 46,
+    "description": "Vattic's Style in 64x by Alex Zeuselpro and some others"
+  },
+    "supported_formats": {
+    "min_inclusive": 46,
+    "max_inclusive": 46
   }
 }
