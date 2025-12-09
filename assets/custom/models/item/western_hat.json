@@ -1,11 +1,10 @@
 {
 	"format_version": "1.21.6",
 	"credit": "Made with Blockbench",
-	"parent": "minecraft:item/generated",
 	"textures": {
-		"0": "western_hat/Base_walls",
-		"1": "western_hat/Belt",
-		"particle": "western_hat/Base_walls"
+		"0": "custom:item/western_hat1",
+		"1": "custom:item/western_hat2",
+		"particle": "custom:item/western_hat1"
 	},
 	"elements": [
 		{
