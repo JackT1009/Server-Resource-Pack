@@ -1,9 +1,9 @@
 {
-  "parent": "minecraft:block/carved_pumpkin",
+  "parent": "minecraft:item/generated",
   "overrides": [
     { 
       "predicate": { "custom_model_data": 1001 }, 
-      "model": "minecraft:western_hat/custom_hat" 
+      "model": "minecraft:custom/western_hat" 
     }
   ]
 }
