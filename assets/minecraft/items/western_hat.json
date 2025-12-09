@@ -1,6 +1,6 @@
 {
 	"model": {
 		"type": "minecraft:model",
-		"model": "western_hat"
+		"model": "item/western_hat"
 	}
 }
