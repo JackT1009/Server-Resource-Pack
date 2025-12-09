@@ -40,8 +40,8 @@ jobs:
           SERVER_ID: ${{ secrets.SERVER_ID }}
           PACK_URL: https://github.com/${{ github.repository }}/releases/download/v${{ github.run_number }}/resourcepack.zip
         run: |
-          # Command for 'Better Server Packs' (Fabric)
-          MC_COMMAND="pack set \"$PACK_URL\" push"
+          # FIX: We removed the extra quotes around $PACK_URL to fix the JSON error
+          MC_COMMAND="pack set $PACK_URL push"
 
           echo "Sending command to server..."
 
